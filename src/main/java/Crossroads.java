@@ -4,8 +4,11 @@ import repository.Repository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -17,6 +20,8 @@ public class Crossroads extends ReentrantLock {
     private final Condition cond1;
     private final Condition cond2;
     private final Repository repository;
+    private final List<String> removedVehiclesFirstRoad;
+    private final List<String> removedVehiclesSecondRoad;
 
     public Crossroads(Repository repository) {
         this.lock = new ReentrantLock(false);
@@ -24,6 +29,8 @@ public class Crossroads extends ReentrantLock {
         this.cond1 = this.lock.newCondition();
         this.cond2 = this.lock.newCondition();
         this.repository = repository;
+        this.removedVehiclesFirstRoad = new CopyOnWriteArrayList<>();
+        this.removedVehiclesSecondRoad = new CopyOnWriteArrayList<>();
         this.timer();
     }
 
@@ -35,6 +42,7 @@ public class Crossroads extends ReentrantLock {
             }
             this.cond1.signal();
             this.repository.getFirstRoad().remove(vehicle);
+            this.removedVehiclesFirstRoad.add(vehicle.getRegistrationNumber());
             vehiclePassing(vehicle, 1);
 
         }finally {
@@ -50,6 +58,7 @@ public class Crossroads extends ReentrantLock {
             }
             vehiclePassing(vehicle, 2);
             this.repository.getSecondRoad().remove(vehicle);
+            this.removedVehiclesSecondRoad.add(vehicle.getRegistrationNumber());
             this.cond2.signal();
         } finally {
             this.lock.unlock();
@@ -85,5 +94,13 @@ public class Crossroads extends ReentrantLock {
     }
     private String getTime(){
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+    }
+
+    public List<String> getRemovedVehiclesFirstRoad() {
+        return removedVehiclesFirstRoad;
+    }
+
+    public List<String> getRemovedVehiclesSecondRoad() {
+        return removedVehiclesSecondRoad;
     }
 }

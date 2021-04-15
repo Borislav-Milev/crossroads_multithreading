@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="357d0361-85db-4981-98b9-469d8b3f016d" name="Default Changelist" comment="" />
+    <list default="true" id="357d0361-85db-4981-98b9-469d8b3f016d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Crossroads.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crossroads.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileUploader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileUploader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstRoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstRoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SecondRoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SecondRoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/Repository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +26,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1r9Oo23gcEBNb0fdTkHiHdoS9gh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,6 +38,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/REPOSITORY/examS3" />
@@ -35,6 +49,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -45,17 +60,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="app" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -79,7 +83,10 @@
       <workItem from="1618412024600" duration="37000" />
       <workItem from="1618412090626" duration="5437000" />
       <workItem from="1618419898127" duration="9471000" />
-      <workItem from="1618467271613" duration="12893000" />
+      <workItem from="1618467271613" duration="20971000" />
+      <workItem from="1618495759457" duration="1389000" />
+      <workItem from="1618497220076" duration="611000" />
+      <workItem from="1618497961906" duration="899000" />
     </task>
     <servers />
   </component>

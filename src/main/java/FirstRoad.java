@@ -13,6 +13,7 @@ public class FirstRoad implements Runnable {
     }
 
     @Override
+    @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         while (true) {
             for (Vehicle vehicle : this.repository.getFirstRoad()) {

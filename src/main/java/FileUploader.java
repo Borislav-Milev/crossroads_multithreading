@@ -11,14 +11,16 @@ import java.util.TimerTask;
 
 public class FileUploader {
 
-    private final FileReader fileReader;
     private final Timer timer;
     private final Repository repository;
+    private final Crossroads crossroads;
+    private final FileReader fileReader;
 
-    public FileUploader(Repository repository) {
-        this.fileReader = new FileReader();
+    public FileUploader(Repository repository, Crossroads crossroads) {
         this.timer = new Timer();
         this.repository = repository;
+        this.crossroads = crossroads;
+        this.fileReader = new FileReader();
     }
 
     public void fillRepository() {
@@ -51,8 +53,18 @@ public class FileUploader {
             vehicle = new Truck(reg);
         }
         if (road == 1) {
+            for (String removedReg : this.crossroads.getRemovedVehiclesFirstRoad()) {
+                if(removedReg.equals(reg)){
+                    return;
+                }
+            }
             this.repository.addVehicleToFirstRoad(vehicle);
         } else {
+            for (String removedReg : this.crossroads.getRemovedVehiclesSecondRoad()) {
+                if(removedReg.equals(reg)){
+                    return;
+                }
+            }
             this.repository.addVehicleToSecondRoad(vehicle);
         }
     }

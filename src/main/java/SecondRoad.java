@@ -1,12 +1,10 @@
 import models.Vehicle;
 import repository.Repository;
 
-import java.util.ArrayList;
-
 public class SecondRoad implements Runnable {
 
     private final Crossroads crossroads;
-    private Repository repository;
+    private final Repository repository;
 
     public SecondRoad(Crossroads crossroads, Repository repository) {
         this.crossroads = crossroads;
@@ -14,9 +12,10 @@ public class SecondRoad implements Runnable {
     }
 
     @Override
+    @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         while (true) {
-            for (Vehicle vehicle : new ArrayList<>(this.repository.getSecondRoad())) {
+            for (Vehicle vehicle : this.repository.getSecondRoad()) {
                 try {
                     this.crossroads.secondRoad(vehicle);
                 } catch (InterruptedException e) {

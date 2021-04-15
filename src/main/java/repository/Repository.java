@@ -2,38 +2,36 @@ package repository;
 
 import models.Vehicle;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 public class Repository {
 
-    private List<Vehicle> firstRoad;
-    private List<Vehicle> secondRoad;
-    private Lock lock = new ReentrantLock();
-    private Lock lock2 = new ReentrantLock();
+    private final Set<Vehicle> firstRoad;
+    private final Set<Vehicle> secondRoad;
 
     public Repository() {
-        this.firstRoad = new CopyOnWriteArrayList<>();
-        this.secondRoad = new CopyOnWriteArrayList<>();
+        this.firstRoad = new CopyOnWriteArraySet<>();
+        this.secondRoad = new CopyOnWriteArraySet<>();
     }
 
-    public List<Vehicle> getFirstRoad() {
-        return firstRoad;
-    }
-
-    public List<Vehicle> getSecondRoad() {
-        return secondRoad;
-    }
 
     public void addVehicleToFirstRoad(Vehicle vehicle) {
-        if(!firstRoad.isEmpty())
-        System.out.println(firstRoad.get(0).getRegistrationNumber());
+        for (Vehicle vehicle1 : firstRoad) {
+            if(vehicle.getRegistrationNumber().equals(vehicle1.getRegistrationNumber())){
+                return;
+            }
+        }
+        firstRoad.add(vehicle);
     }
 
     public void addVehicleToSecondRoad(Vehicle vehicle) {
+        for (Vehicle vehicle1 : secondRoad) {
+            if(vehicle.getRegistrationNumber().equals(vehicle1.getRegistrationNumber())){
+                return;
+            }
+        }
+        secondRoad.add(vehicle);
     }
 
     public int getSizeFirstRoad() {
@@ -42,5 +40,13 @@ public class Repository {
 
     public int getSizeSecondRoad() {
         return this.secondRoad.size();
+    }
+
+    public Set<Vehicle> getFirstRoad() {
+        return firstRoad;
+    }
+
+    public Set<Vehicle> getSecondRoad() {
+        return secondRoad;
     }
 }
